@@ -2,42 +2,114 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>GitHub &amp; BitBucket HTML Preview</title>
+	<title>Github&Html</title>
+	<link rel="icon" href="favicon.ico">
 	<style>
 	body {
+		background: DeepSkyBlue;
 		font: 12px 'Helvetica Neue', Helvetica, Arial, freesans, clean, sans-serif;
-		color: #333;
+		color: #fff;
+		overflow: hidden;
 	}
-	h1 {
-		font-size: 20px;
-	}
-	a {
-		color: #666;
-	}
+	/*兼容*/
+	::-webkit-input-placeholder { color:#fff; }
+	::-moz-placeholder { color:#fff; } /* firefox 19+ */
+	:-ms-input-placeholder { color:#fff; } /* ie */
+	input:-moz-placeholder { color:#fff; }
 	form {
-		padding: 20px; 
+		padding: 150px 0;
 		text-align: center;
 	}
-	strong {
-		color: #333;
-		background-color: #FAFFA6;
-		padding: 0.1em;
+	input{
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		-o-appearance: none;
+		appearance: none;
+		/*浏览器默认添加背景*/
 	}
-	#footer {
-		margin: 20px 0;
-		font-size: 10px;
-		color: #666;
+	/*默认的填充之后的背景颜色*/
+	input[type="url"]{
+		margin-top: 60px;
+		background: none;
+		border: none;
+		border-bottom: 2px solid #fff;
+		padding-top: 15px;
+		outline: none;
+		color:#fff;
+		animation: in ease-in 1s 1;
+		transition: all 1s;
 	}
+	@keyframes in {
+		0%{margin-top: 0;opacity: 0;}
+		100%{margin-top: 60px;opacity:1;}
+	}
+	/*三角形开始*/
+		.arrow_box {
+			display:inline-block;
+			position: relative;
+			width: 120px;
+			height: 40px;
+			background: rgb(4, 133, 157);
+			border-radius: 5px;
+			box-shadow: 1px 1px 5px #333;
+			line-height: 40px;
+			font-family: "微软雅黑";
+			opacity: 0;
+			animation: arrow ease-in 8s 1 3s;
+		}
+		@keyframes arrow {
+				0%{opacity: .5;}
+				50%{opacity: 1;}
+				100%{opacity: 0;}
+		}
+		.arrow_box:after {
+			top: 100%;
+			left: 50%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border-color: rgba(100, 213, 157, 0);
+			border-top-color: rgb(1, 86, 102);
+			border-width: 15px;
+			margin-left: -15px;
+		}
+		a{
+			text-decoration: none;
+			color: 		#87CEFA;
+		}
+		a:hover{
+			color: #fff;
+			transition: all ease-in 500ms;
+		}
+
+		.bootom{
+			position: absolute;
+			bottom: 30px;
+			right: 20px;
+			font-size: 18px;
+			animation: b 1s ease-in  1;
+		}
+		@keyframes b {
+			0%{bottom: -80px;}
+			100%{bottom: 30px;}
+		}
 	</style>
 </head>
 <body>
 	<form id="previewform" action="">
-		<h1>GitHub &amp; BitBucket HTML Preview</h1>
-		<p>Enter URL of the HTML file to preview: <input type="url" id="file" value="" placeholder="e.g. https://github.com/user/repo/blob/master/index.html" size="60" autofocus> <input type="submit" value="&raquo;"></p>
-		<p>or prepend to the URL: <strong>http://htmlpreview.github.io/?</strong>https://github.com/twbs/bootstrap/blob/gh-pages/2.3.2/index.html</p>
-		<p>or use this bookmarklet while browsing GitHub or BitBucket: <a href="javascript:void('http://htmlpreview.github.io/'==window.location?alert('Drag me to your bookmarks bar!'):window.location='http://htmlpreview.github.io/?'+window.location)"><strong>HTMLPreview</strong></a></p>
-		<p id="footer">Developed by <a href="https://github.com/niutech">niu tech</a> | Contribute on <a href="https://github.com/htmlpreview/htmlpreview.github.com">GitHub</a></p>
+		<p>
+			<input type="url" id="file" size="60"  placeholder=" 复制你需要预览的html的地址即可 &nbsp; @chenhonzhou">
+		</p>
 	</form>
+
+	<div class="bootom">
+		<a href="http://github.com/chenhonzhou/htmlpreview" target="_blank">star</a>
+		or
+		<a href="http://github.com/chenhonzhou/htmlpreview" target="_blank">fork</a>
+	</div>
 	<script src="/htmlpreview.min.js"></script>
 	<script>HTMLPreview.init();</script>
 </body>
