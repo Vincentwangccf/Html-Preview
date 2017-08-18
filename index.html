@@ -2,42 +2,83 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>GitHub &amp; BitBucket HTML Preview</title>
+	<title>Git&Html</title>
+	<link rel="icon" href="http://github.com/favicon.ico">
 	<style>
 	body {
+		background: rgb(34, 166, 126);
 		font: 12px 'Helvetica Neue', Helvetica, Arial, freesans, clean, sans-serif;
-		color: #333;
+		color: #fff;
+		overflow: hidden;
 	}
-	h1 {
-		font-size: 20px;
-	}
-	a {
-		color: #666;
-	}
+	/*兼容*/
+	::-webkit-input-placeholder { color:#f1ecec; }
+	::-moz-placeholder { color:#eeecec; } /* firefox 19+ */
+	:-ms-input-placeholder { color:#eeecec; } /* ie */
+	input:-moz-placeholder { color:#eeecec; }
 	form {
-		padding: 20px; 
+		padding: 150px 0;
 		text-align: center;
 	}
-	strong {
-		color: #333;
-		background-color: #FAFFA6;
-		padding: 0.1em;
+	input{
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		-o-appearance: none;
+		appearance: none;
+		/*浏览器默认添加背景*/
 	}
-	#footer {
-		margin: 20px 0;
-		font-size: 10px;
-		color: #666;
+	/*默认的填充之后的背景颜色*/
+	input[type="url"]{
+		margin-top: 60px;
+		background: none;
+		border: none;
+		border-bottom: 1px solid #e1e9e9;
+		padding-top: 15px;
+		outline: none;
+		color:#fff;
+		animation: in ease-in .5s 1;
+		transition: all 1s;
 	}
+	@keyframes in {
+		0%{margin-top: 0;opacity: 0;}
+		100%{margin-top: 60px;opacity:1;}
+	}
+		a{
+			text-decoration: none;
+			color: 		rgba(255, 255, 255, 0.3);
+		}
+		a:hover{
+			cursor: pointer;
+			color: #fff;
+			transition: all ease-in .5s;
+		}
+
+		.bootom{
+			position: absolute;
+			bottom: 15px;
+			right: 20px;
+			font-size: 18px;
+			animation: b 1s ease-in  1;
+		}
+
+		@keyframes b {
+			0%{bottom: -80px;}
+			100%{bottom: 30px;}
+		}
 	</style>
 </head>
 <body>
 	<form id="previewform" action="">
-		<h1>GitHub &amp; BitBucket HTML Preview</h1>
-		<p>Enter URL of the HTML file to preview: <input type="url" id="file" value="" placeholder="e.g. https://github.com/user/repo/blob/master/index.html" size="60" autofocus> <input type="submit" value="&raquo;"></p>
-		<p>or prepend to the URL: <strong>http://htmlpreview.github.io/?</strong>https://github.com/twbs/bootstrap/blob/gh-pages/2.3.2/index.html</p>
-		<p>or use this bookmarklet while browsing GitHub or BitBucket: <a href="javascript:void('http://htmlpreview.github.io/'==window.location?alert('Drag me to your bookmarks bar!'):window.location='http://htmlpreview.github.io/?'+window.location)"><strong>HTMLPreview</strong></a></p>
-		<p id="footer">Developed by <a href="https://github.com/niutech">niu tech</a> | Contribute on <a href="https://github.com/htmlpreview/htmlpreview.github.com">GitHub</a></p>
+		<p>
+			<input type="url" id="file" size="60">
+		</p>
 	</form>
+
+	<div class="bootom">
+		<a href="http://github.com/chenhonzhou/htmlpreview" target="_blank">star</a>
+		or
+		<a href="http://github.com/chenhonzhou/htmlpreview" target="_blank">fork</a>
+	</div>
 	<script src="/htmlpreview.min.js"></script>
 	<script>HTMLPreview.init();</script>
 </body>
